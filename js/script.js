@@ -8,15 +8,15 @@
 // FUNCTIONS
 
 const get10RndEmails = () => {
-    const emails = []
         for(let i = 1; i <= 10; i++) {
             axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
             .then(response => {
+                
                 const result = response.data.response
-                emails.push(result)
+
+                emailListElm.innerHTML += `<li>${result}</li>`
             })
     }
-    console.log(emails)
 }
 
 // DOM ELEMENTS
@@ -24,5 +24,3 @@ const get10RndEmails = () => {
 const emailListElm = document.getElementById("email-list")
 
 get10RndEmails()
-
-// emailListElm.innerHTML = 
