@@ -8,19 +8,27 @@
 // FUNCTIONS
 
 const get10RndEmails = () => {
-        for(let i = 1; i <= 10; i++) {
+    const emails = []
+        for(let i = 0; i < 10; i++) {
             axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
             .then(response => {
-                
-                const result = response.data.response
 
-                emailListElm.innerHTML += `<li>${result}</li>`
+                const result = response.data.response
+                emails.push(result)
+
+                if (emails.length === 10) {
+                    for (let j = 0; j < emails.length; j++) {
+                        emailListElm.innerHTML += `<li>${emails[j]}</li>`;
+                    }
+                }
             })
-    }
+        }
 }
 
 // DOM ELEMENTS
 
 const emailListElm = document.getElementById("email-list")
+
+// EVENTS
 
 get10RndEmails()
