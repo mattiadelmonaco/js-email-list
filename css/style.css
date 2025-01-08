@@ -1,0 +1,34 @@
+.ms-title {
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: italic;
+    color: #32B3FF;
+    font-size: 3.75rem;
+}
+
+.ms-btn-create {
+    display: flex;
+    justify-self: center;
+    margin: 1.875rem 0;
+    background-color: #32B3FF;
+    border: none;
+    transform: scale(1);
+    transition: 0.4s ease-out;
+}
+
+.ms-btn-create:hover {
+    background-color: #2b99d8;
+    transform: scale(1.2);
+    transition: 0.4s;
+}
+
+#card-header {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #32B3FF;
+}
+
+#loading {
+    max-width: 12.5rem;
+    justify-self: center;
+}

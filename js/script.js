@@ -16,11 +16,18 @@ const get10RndEmails = () => {
                 const result = response.data.response
                 emails.push(result)
 
+                emailListElm.innerHTML = ``
+
                 if (emails.length === 10) {
                     for (let j = 0; j < emails.length; j++) {
-                        emailListElm.innerHTML += `<li>${emails[j]}</li>`;
+                        emailListElm.innerHTML += `<li class="list-group-item">${emails[j]}</li>`;
                     }
                 }
+            })
+            .finally(() => {
+                loadingElm.classList.add("d-none")
+                emailsCardElm.classList.remove("d-none")
+                titleElm.classList.add("d-none")
             })
         }
 }
@@ -28,7 +35,16 @@ const get10RndEmails = () => {
 // DOM ELEMENTS
 
 const emailListElm = document.getElementById("email-list")
+const titleElm = document.getElementById("title")
+const btnStartElm = document.getElementById("btn-start")
+const emailsCardElm = document.getElementById("emails-card")
+const loadingElm = document.getElementById("loading")
+const cardHeaderElm = document.getElementById("card-header")
 
 // EVENTS
 
-get10RndEmails()
+btnStartElm.addEventListener("click", () => {
+    get10RndEmails()
+    btnStartElm.innerHTML = "Genera di nuovo"
+    loadingElm.classList.remove("d-none")
+})
